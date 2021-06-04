@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function population(s1, s2) {
+            var s1 = document.getElementById(s1);
+            var s2 = document.getElementById(s2);
+            s2.innerHTML = "";
+            if (s1.value == "Bihar") {
+                var optionArray = ["|", "patna|Patna", "dehri|Dehri", "gaya|Gaya"];
+            }
+            else if (s1.value == "Punjab") {
+                var optionArray = ["|", "mohali|Mohali", "amritsar|Amritsar", "ludhiyana|Ludhiyana"];
+
+            }
+            else if (s1.value == "Haryana") {
+                var optionArray = ["|", "panipat|Panipat", "karnal|Karnal", "sonipat|Sonipat"];
+
+            }
+            for (var option in optionArray) {
+                var pair = optionArray[option].split("|");
+                var newOption = document.createElement("option");
+                newOption.value = pair[0];
+                newOption.innerHTML = pair[1];
+                s2.options.add(newOption);
+
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Choose your state</h2>
+    <hr />
+    choose state🧮
+    <select id="select1" name="select1" onchange="population(this.id,'select2')">
+        <option value=""></option>
+        <option value="Bihar">Bihar</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Haryana">Haryana</option>
+    </select>
+    <hr />
+    <select id="select2" name="select2"></select>
+
+    <hr />
+
+
+</body>
+
+</html>
+
+
+<!-- <div id="container"></div>
+<input type="button" value="AJAX Load" onclick="load();"/>
+ 
+<script>
+function load () {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'data.html');
+  xhr.onload = function () {
+    document.getElementById("container").innerHTML = this.response;
+  };
+  xhr.send();
+}
+</script> -->
+
+<!-- (A) HTML CONTAINER -->
+<!-- <div id="container"></div>
+<input type="button" value="Load Data" onclick="load();"/> -->
+
+<!-- AJAX LOAD JSON DATA -->
+<!-- <script>
+function load() {
+  //  AJAX REQUEST
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', "dummy.txt");
+  xhr.onload = function () {
+    //  PARSE JSON STRING INTO AN ARRAY
+    var data = JSON.parse(this.response);
+    console.log(data);
+ 
+    // BUILD HTML TABLE WITH THE GIVEN DATA
+    var table = "<table>";
+    for (let person of data) {
+      table += "<tr>";
+      table += "<td>" + person.name + "</td>";
+      table += "<td>" + person.email + "</td>";
+      table += "</tr>";
+    }
+ 
+    // PUT TABLE INTO HTML CONTAINER
+    document.getElementById("container").innerHTML = table;
+  };
+  xhr.send();
+}
+</script> -->
